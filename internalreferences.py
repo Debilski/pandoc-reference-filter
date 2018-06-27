@@ -192,7 +192,8 @@ def latex_figure(attr, filename, caption, alt):
                '\\label{{{id}}}\n'
                '\\end{{figure}}\n'.format(id=attr[0]))
 
-    image = [pf.Image(attr, caption, (filename, alt))]
+    #image = [pf.Image(attr, caption, (filename, alt))]
+    image = [RawInline('latex', '\\includegraphics[width=\\textwidth]{'+filename+'}\n')]
 
     if 'unnumbered' in attr[1]:
         star = True
