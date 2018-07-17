@@ -206,7 +206,10 @@ def latex_figure(attr, filename, caption, alt):
             # short captions.
             alt = alt[4:]
         shortCaption = toFormat(alt, 'markdown', 'latex')
-        latexCaption = '\n\\caption[{}]{{'.format(shortCaption)
+        if shortCaption:
+            latexCaption = '\n\\caption[{}]{{'.format(shortCaption)
+        else:
+            latexCaption = '\n\\caption{'
 
     else:  # No short caption
         if star:
